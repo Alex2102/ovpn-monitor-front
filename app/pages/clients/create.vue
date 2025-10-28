@@ -29,6 +29,7 @@ const download = () => {
                 </div>
 
                 <div class="flex items-center gap-3">
+                    <UiBtnBase :class="['px-4']" @click="generate">Сгенерировать .ovpn</UiBtnBase>
                     <button class="px-4 py-2 rounded bg-indigo-600" @click="generate">Сгенерировать .ovpn</button>
                     <button :disabled="!ovpn" class="px-4 py-2 rounded border border-slate-600" @click="download">
                         Скачать

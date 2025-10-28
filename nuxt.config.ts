@@ -1,10 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
-    devtools: {enabled: true},
+    devtools: { enabled: false },
     modules: [
         '@pinia/nuxt',
-        '@nuxtjs/tailwindcss'
+        '@nuxtjs/tailwindcss',
+        [
+            '@vee-validate/nuxt',
+            {
+                autoImports: true,
+            },
+        ],
     ],
     typescript: {
         typeCheck: true,
@@ -16,4 +22,9 @@ export default defineNuxtConfig({
         exposeConfig: false,
         viewer: true,
     },
-})
+    runtimeConfig: {
+        public: {
+            apiUrl: process.env.NUXT_API_URL || 'http://localhost:3000/api',
+        },
+    }
+});
